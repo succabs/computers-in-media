@@ -12,3 +12,10 @@ TODO:
 -Show results only when something is written
 -Search bar to center
 -Movie details to tables
+-Put the finished version running on server
+
+How to install:
+-clone the repository with git clone
+-run command "npm -i" to install node dependencies
+-run command "npm start" to try it out
+
