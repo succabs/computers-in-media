@@ -1,32 +1,24 @@
-import React, { Component } from "react"
+import React from "react"
+import { useNavigate }  from 'react-router-dom';
 
-class Search extends Component {
-      state = {
-    title: "",
-  }
-  onChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    })
-  }
 
-    handleSubmit = e => {
-  e.preventDefault();
-  this.props.addSearchProps(this.state.title);
-  this.setState({
-    title: ""
-  });
-    };
+export default function Search({ searchQuery, setSearchQuery }) {
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input type="text" placeholder="Name"value={this.state.title}
-          name="title"
-          onChange={this.onChange} />
-        <button>Search</button>
-      </form>
-    )
-  }
+  return(
+    <form action="/" method="get">
+        <label htmlFor="header-search">
+            <span className="visually-hidden">Search blog posts</span>
+        </label>
+        <input
+            value={searchQuery}
+            onInput={e => setSearchQuery(e.target.value)}
+            type="text"
+            id="header-search"
+            placeholder="Search blog posts"
+            name="s"
+        />
+        <button type="submit">Search</button>
+    </form>
+);
 }
-export default Search
+  
